@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticion Pos</title>
+</head>
+
+<body>
+    <button id="btnEnviar">Enviar</button>
+</body>
+
+<script>
+
+    let btn = document.getElementById('btnEnviar').addEventListener('click', function () {
+        let json =
+            [
+                // { "object": "fontsize", "data": "1,1" },
+                //{ "object": "align", "data": "center" },
+                { "object": "text", "data": "----------------------------------------", "align": "center"},
+                { "object": "text", "data": "LA CATOLICA LIBRERIA Y PAPELERIA SAS", "align": "center"},
+                { "object": "text", "data": "Su mejor aliado en papeleria", "align": "center", "font":["Segoe UI", "italic", 8]}, 
+                { "object": "text", "data": "NIT. 900630253-4", "align": "center"},
+                { "object": "text", "data": "CL 13 N 9 - 17", "align": "center"},
+                { "object": "text", "data": "Tel: 8350266 - 3023361310", "align": "center"},
+                { "object": "text", "data": "Girardot - Cundinamarca", "align": "center"},
+                { "object": "text", "data": "Responsable de IVA", "align": "center"},
+                { "object": "text", "data": "----------------------------------------" },
+                //{ "object": "align", "data": "left" },
+                { "object": "text", "data": "Fact No. PLCT00005 Fecha: 2021-05-28"},
+                { "object": "text", "data": "Cliente: MOSTRADOR." },
+                { "object": "text", "data": "Nit: 0" },
+                //{ "object": "align", "data": "center}
+                { "object": "text", "data": "----------------------------------------" },
+                //{ "object": "align", "data": "center" },
+                { "object": "text", "data": "   Cant    Descripcion    Vr Total   " },
+                { "object": "text", "data": "----------------------------------------" },
+                { "object": "text", "data": "1.00   IMPOCONSUMO......          $51.00" },
+                { "object": "text", "data": "1.00   EXENTO DE IVA....       $1,000.00" },
+                //{ "object": "align", "data": "center" },
+                { "object": "text", "data": "----------------------------------------" },
+                //{ "object": "align", "data": "right" },
+                { "object": "text", "data": "Base: $1,051.00" },
+                { "object": "text", "data": "Impuesto: $0.00" },
+                { "object": "text", "data": "Descuento---> $0.00" },
+                { "object": "text", "data": "Total---> $1,051.00" },
+                //{ "object": "align", "data": "center" },
+                { "object": "text", "data": "----------------------------------------" },
+                //{ "object": "align", "data": "right" },
+                { "object": "text", "data": "Efectivo: $1,051.00" },
+                //{ "object": "align", "data": "center" },
+                { "object": "text", "data": "----------------------------------------" },
+                //{ "object": "align", "data": "right" },
+                { "object": "text", "data": "Recibido: $1,051.00" },
+                { "object": "text", "data": "Cambio: $0.00" },
+                //{ "object": "align", "data": "center" },
+                { "object": "text", "data": "==============================", "align": "center"},
+                { "object": "text", "data": "........................................" },
+                //{ "object": "align", "data": "center" }, { "object": "text", "data": "RESOLUCION DIAN" },
+                { "object": "text", "data": "18764012  DEL  2021-05-05" },
+                { "object": "text", "data": "DESDE  00001  HASTA  50000" },
+                { "object": "text", "data": "........................................" },
+                { "object": "text", "data": "POS - Factura No. PLCT00005" },
+                { "object": "text", "data": "........................................" },
+                { "object": "text", "data": "PERSEY - SOFTWARE  PARA FACTURACION" },
+                { "object": "text", "data": "........................................" },
+                 //{ "object": "align", "data": "right" },
+                { "object": "text", "data": "- FIN -" }
+            ];
+
+        let myInit = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            mode: 'no-cors',
+            body: JSON.stringify(json)
+        };
+
+        let request = new Request('http://localhost:8000', myInit);
+
+        fetch(request).then(response => console.log(response))
+    });
+
+</script>
+
+</html>
